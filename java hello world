@@ -1,0 +1,22 @@
+package com.hoko;
+
+import java.io.*;  
+import java.math.*;  
+import java.util.*;  
+import java.text.*;  
+
+
+public class helloworld {
+	 public static void main(String args[]) {
+	     /*int x = 10;
+	      while( x < 20 ) {
+	         System.out.print("value of x : " + x );
+	         x++;
+	         System.out.print("\n");*/
+	
+		 
+		 System.out.print("Hello World!\n");
+		 for(int i=0;i<10;i++)
+		 System.out.println("Hello World!\n");
+	   }
+}
