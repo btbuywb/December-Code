@@ -1,0 +1,26 @@
+#include<stdio.h>
+
+#define AA
+
+#ifdef BB
+
+#define HELLO "hello world"
+
+#elif BB
+
+#define HELLO "hello CC"
+
+#endif
+int main()
+
+{
+
+printf("%s\n",HELLO);
+
+return 1;
+
+}
+
+//会出现：error: #if with no expression的错误。原因是BB虽然定义了，但是定义的是空值，放在#elif后面就不行。因为#elif不仅仅是检查后面的宏有没有定义，还会检查其值。但是#ifdef就只是检查后面的宏是否定义，而不管其值为多少。读者可以把#define
+
+        BB改成#define AA试一下，结果就会打印hello world了
