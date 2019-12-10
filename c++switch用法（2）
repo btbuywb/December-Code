@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+int main(void){
+  int a;
+  while(true) {
+    cin >> a;
+    switch(a) {
+      case 1:
+        cout <<  "hi" << endl;
+        break;
+      case 2:
+        cout << "hello" << endl;
+        break;
+      default:
+        cout << "goodbye" << endl;
+    }
+  }
+}
