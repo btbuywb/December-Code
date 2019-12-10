@@ -1,0 +1,22 @@
+//switch只接受整型，字符型的用法
+
+//字符型
+#include <iostream>
+using namespace std;
+
+int main(void){   
+  char a;
+  while(true) {
+    cin >> a; 
+    switch(a) {
+      case 'b':
+        cout <<  "hi" << endl;
+        break;
+      case 'c':
+        cout << "hello" << endl;
+        break;
+      default:
+        cout << "goodbye" << endl;
+    }
+  }
+}
