@@ -1,0 +1,69 @@
+//天勤课本上的代码235页
+
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int n;
+
+void quicksort(int *a,int l,int r)
+{
+    int i,j,temp;
+
+    i=l,j=r;
+    if(l<r)
+    {
+        temp=a[l];  /*这个地方出错好几次了QAQ*/
+        /*下面的while循环只是完成了 一趟排序，所有数字的排序由后面递归完成*/
+        while(i<j)
+        {
+            while(temp<a[j]&&i<j)j--;
+            if(i<j)
+            {
+                a[i]=a[j];
+                i++;
+            }
+
+            while(temp>a[i]&&i<j)i++;
+            if(i<j)
+            {
+                a[j]=a[i];
+                j--;
+            }
+
+        }
+        a[i]=temp;
+        quicksort(a,l,i-1);
+        quicksort(a,i+1,r);
+    }
+}
+int main()
+{
+
+    int a[1234],i;
+
+    while(cin>>n)
+    {
+        memset(a,0,sizeof(a));
+
+        for(i=0; i<n; i++)
+            cin>>a[i];
+        int l,r;
+        l=0,r=n;
+        quicksort(a,l,r-1);/*这次的错误在于把r-1写成了r*/
+
+        for(i=0; i<n; i++)
+        {
+            if(i)cout<<" ";
+            cout<<a[i];
+        }
+        cout<<endl;
+
+    }
+    return 0;
+}
+
+/*  天勤课本上的代码
+
+
+*/
