@@ -1,0 +1,61 @@
+#include<bits/stdc++.h>
+using namespace std;
+int nnext[1001234];
+void setnext(char *p)
+{
+    int t,i,j=-1;
+    nnext[0]=-1;
+
+    i=0;t=strlen(p);//这里忘记写了
+    while(i<t)
+    {
+        if(p[i]==p[j]||j==-1)
+            {
+                i++;
+                j++;
+                nnext[i]=j;
+            }
+
+            else
+        {
+            j=nnext[j];
+        }
+    }
+
+}
+int kmp(char *str1,char *str2)
+{
+    setnext(str2);//每次都忘记的非常关键的一步；；；
+
+    int i,j,m,n;
+    i=0;j=0;//初始值赋值也很重要的
+    m=strlen(str1),n=strlen(str2);
+    //j=-1是错的;
+    while(i<m&&j<n)
+    {
+        if(str1[i]==str2[j]||j==-1)   //这次把||j==-1落下了
+        {
+            i++;
+            j++;
+        }
+        else
+        {
+            j=nnext[j];
+        }
+    }
+    if(j==n)return i-j+1;
+        else return -1;
+}
+int main()
+{
+    char  str1[1000001],str2[1000001];
+    int t;
+    while(cin>>str1>>str2)
+    {
+        t=kmp(str1,str2);
+        cout<<t<<endl;
+    }
+
+
+    return 0;
+}
